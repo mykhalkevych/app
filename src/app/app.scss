@@ -14,3 +14,37 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ion-menu {
+    ion-header {
+        .logo{
+            text-align: center;
+            padding: 20px 0;
+            img {
+                width: 160px;
+            }
+        }
+    }
+}
+
+form {
+    .item-block {
+        padding-left: 0;
+    }
+}
+.facebook-btn {
+    font-size: 1.4rem;
+    background-color: #2d4f95;
+    span {
+      margin-right: 1rem;
+      margin-bottom: 3px;
+    }
+  }
+  .google-btn {
+    font-size: 1.4rem;
+    background-color: #dd4f3d;
+    span {
+      margin-right: 1rem;
+      margin-bottom: 2px;
+    }
+  }
