@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Додати новину
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="addNewsFrom" (ngSubmit)="addNews()">
+    <ion-item>
+      <ion-label floating>Заголовок</ion-label>
+      <ion-input formControlName="title" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Короткий опис</ion-label>
+      <ion-input formControlName="description" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Короткий опис</ion-label>
+        <ion-textarea formControlName="text" rows=4 type="text"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>яаіваф</ion-label>
+        <ion-input type="file" ></ion-input>
+      </ion-item>
+      <button margin-top ion-button block type="submit">Додати</button>
+  </form>
+</ion-content>
