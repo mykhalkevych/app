@@ -14,11 +14,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
-import config from './config.js'
+import config from './config'
 import { AddNewsFormComponent } from '../components/add-news-form/add-news-form';
 import { ReactiveFormsModule } from '@angular/forms';
-
-console.log(config)
+ 
 @NgModule({
   declarations: [
     MyApp,

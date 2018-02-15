@@ -10,3 +10,10 @@ const config = {
 }
 
 export default config;
+
+// {
+//     "rules": {
+//       ".read": "true",
+//       ".write": "auth != null"
+//     }
+//   }

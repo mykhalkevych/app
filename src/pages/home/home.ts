@@ -2,7 +2,6 @@ import { AddNewsFormComponent } from './../../components/add-news-form/add-news-
 import { DatabaseService } from './../../services/database.service';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
@@ -16,17 +15,26 @@ export class HomePage {
     public navCtrl: NavController,
     private dataService: DatabaseService,
     public modalCtrl: ModalController
-    ) {
-   this.dataService.getNewsList()
-    .subscribe(list => {
-      this.news = list;
-    })
+  ) {
+    this.dataService.getNewsList()
+      .valueChanges()
+      .subscribe(list => {
+        this.news = list.reverse();
+      })
   }
 
   openAddNewsForm() {
-    console.log(2)
     let modalForm = this.modalCtrl.create(AddNewsFormComponent);
     modalForm.present();
+  }
+
+  loadMoreNews(infiniteScroll) {
+    this.dataService.getNewsList(this.news.length + 3)
+      .valueChanges()
+      .subscribe(list => {
+        this.news = list.reverse(); 
+        infiniteScroll.complete();
+      })
   }
 
 }
