@@ -1,3 +1,4 @@
+import { DetailNewsPage } from './../pages/detail-news/detail-news';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { DatabaseService } from './../services/database.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,7 +7,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { HighleaguePage } from './../pages/highleague/highleague';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,13 +18,14 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import config from './config'
 import { AddNewsFormComponent } from '../components/add-news-form/add-news-form';
 import { ReactiveFormsModule } from '@angular/forms';
- 
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    AddNewsFormComponent
+    HighleaguePage,
+    AddNewsFormComponent,
+    DetailNewsPage
   ],
   imports: [
     BrowserModule,
@@ -36,8 +38,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
-    AddNewsFormComponent
+    HighleaguePage,
+    AddNewsFormComponent,
+    DetailNewsPage
   ],
   providers: [
     StatusBar,

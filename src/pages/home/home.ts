@@ -1,3 +1,4 @@
+import { DetailNewsPage } from './../detail-news/detail-news';
 import { AddNewsFormComponent } from './../../components/add-news-form/add-news-form';
 import { DatabaseService } from './../../services/database.service';
 import { Component } from '@angular/core';
@@ -35,6 +36,13 @@ export class HomePage {
         this.news = list.reverse(); 
         infiniteScroll.complete();
       })
+  }
+
+  readDetail(news) {
+    console.log("Sd", news);
+    this.navCtrl.push(DetailNewsPage, {
+      news: news
+    })
   }
 
 }

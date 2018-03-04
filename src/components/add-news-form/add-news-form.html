@@ -25,7 +25,11 @@
     <ion-item>
       <ion-label floating>Текст новини</ion-label>
       <ion-textarea formControlName="text" rows=4 type="text"></ion-textarea>
-    </ion-item> 
+    </ion-item>
+    <ion-item>
+      <ion-label floating >Завантажити картинку</ion-label>
+      <ion-input type="file" (change)="uploadFile($event)"></ion-input>
+    </ion-item>
     <button margin-top ion-button block type="submit">Додати</button>
   </form>
 </ion-content>
