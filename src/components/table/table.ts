@@ -1,3 +1,4 @@
+import { DatabaseService } from './../../services/database.service';
 import { Events } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
@@ -14,18 +15,40 @@ import { NavParams } from 'ionic-angular';
 })
 export class TableComponent {
 
-  text: string;
+  teams: Array<any> = [];
 
-  constructor(private events: Events) {
+  constructor(
+    private events: Events,
+    private dataService: DatabaseService) {
     this.getTableData('adults')
     this.events.subscribe('team:composition', (val) => {
-      console.log(val);
       this.getTableData(val);
     });
+
   }
 
   getTableData(teamComposition) {
-    this.text = teamComposition; 
+    let tableList = 'teams';
+    if (teamComposition !== 'adults') {
+      tableList = 'teenagersTeams';
+    }
+    this.dataService.getTeams(tableList, 'top')
+      .valueChanges()
+      .subscribe(teams => {
+        this.teams = this.sortTeams(teams);
+      })
+  }
+
+  sortTeams(teams: Array<any>) {
+    return teams.sort((a, b): any => {
+      if (a.tournaments.league.points !== b.tournaments.league.points) {
+        return a.tournaments.league.points < b.tournaments.league.points;
+      } else {
+        let goals1 = a.tournaments.league.goalsScored - a.tournaments.league.goalsMissed;
+        let goals2 = b.tournaments.league.goalsScored - b.tournaments.league.goalsMissed;
+        return goals1 < goals2;
+      }
+    })
   }
 
 }

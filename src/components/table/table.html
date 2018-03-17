@@ -1,4 +1,25 @@
 <!-- Generated template for the TableComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-content>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Команда</th>
+      <th>І</th>
+      <th>В</th>
+      <th>Н</th>
+      <th>П</th>
+      <th>З-П</th>
+      <th>О</th>
+    </tr>
+    <tr *ngFor="let team of teams; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{team.name}}</td>
+      <td>{{team.tournaments.league.matches}}</td>
+      <td>{{team.tournaments.league.win}}</td>
+      <td>{{team.tournaments.league.draw}}</td>
+      <td>{{team.tournaments.league.defeat}}</td>
+      <td>{{team.tournaments.league.goalsScored + '-' + team.tournaments.league.goalsMissed}}</td>
+      <td>{{team.tournaments.league.points}}</td>
+    </tr>
+  </table>
+</ion-content>

@@ -26,6 +26,10 @@ export class DatabaseService {
         return this.db.list('news', ref => ref.limitToLast(limit));
     }
 
+    getTeams(tableList, league) {
+        return this.db.list(tableList, ref => ref.orderByChild('league').equalTo(league));
+    }
+
     addNews(news) {
         return this.news.push(news);
     }

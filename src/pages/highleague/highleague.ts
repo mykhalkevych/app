@@ -24,9 +24,7 @@ export class HighleaguePage {
   page3 = StatisticComponent;
   @ViewChild(SuperTabs) superTabs: SuperTabs;
 
-  data = {
-    name: 'sdf'
-  }
+  teamComposition = 'adults';
   constructor
     (public navCtrl: NavController, 
     private dataService: DatabaseService) {
