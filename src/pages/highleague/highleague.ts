@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DatabaseService } from './../../services/database.service';
+import { CalendarComponent } from './../../components/calendar/calendar';
+import { TableComponent } from './../../components/table/table';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
+import { StatisticComponent } from '../../components/statistic/statistic';
+import { SuperTabs } from 'ionic2-super-tabs';
 
 /**
  * Generated class for the HighleaguePage page.
@@ -8,18 +13,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-highleague',
   templateUrl: 'highleague.html',
 })
 export class HighleaguePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  page1 = TableComponent;
+  page2 = CalendarComponent;
+  page3 = StatisticComponent;
+  @ViewChild(SuperTabs) superTabs: SuperTabs;
+
+  data = {
+    name: 'sdf'
+  }
+  constructor
+    (public navCtrl: NavController, 
+    private dataService: DatabaseService) {
+  }
+
+  slideToIndex(index: number) {
+    this.superTabs.slideTo(index);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HighleaguePage');
+  }
+
+  onTabSelect(tab: { index: number; id: string; }) {
+    console.log(`Selected tab: `, tab);
+  }
+
+  segmentChanged(e) { 
+    this.dataService.changeTeamComposition(e.value);  
   }
 
 }

@@ -48,8 +48,7 @@ export class AddNewsFormComponent {
     this.getImageLink(f)
       .subscribe(url => {
         this.addNewsFrom.controls['imgSrc'].setValue(url);
-      })
-
+      }) 
   }
 
   getImageLink(file) {

@@ -5,12 +5,28 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>highleague</ion-title>
+    <ion-title>Вища ліга</ion-title>
   </ion-navbar>
-
+  
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <super-tabs (tabSelect)="onTabSelect($event)">
+    <super-tab [root]="page1"  title="Таблиця"></super-tab>
+    <super-tab [root]="page2" title="Календар"></super-tab>
+    <super-tab [root]="page3" title="Статистика"></super-tab>
+  </super-tabs>  
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment  color="primary" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="adults">
+        Дорослі
+      </ion-segment-button>
+      <ion-segment-button value="teenagers">
+        Юнаки
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

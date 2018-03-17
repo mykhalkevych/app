@@ -26,6 +26,20 @@ ion-menu {
         }
     }
 }
+.shrink-header {
+    ion-navbar{
+        position: absolute;
+        top: 0;
+        .toolbar-background {
+            background: linear-gradient(#000, rgba(0,0,0,0.01));
+            color: #fff;
+            border: none;
+        }
+        .toolbar-title, button {
+            color: #fff;
+        }
+    }
+}
 
 form {
     .item-block {
