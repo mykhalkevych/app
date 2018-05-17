@@ -1,10 +1,6 @@
-<ion-item-group>
-  <ion-item-divider color="light">A</ion-item-divider>
-  <ion-item>Angola</ion-item>
-  <ion-item>Argentina</ion-item>
-</ion-item-group>
-<ion-item-group>
-  <ion-item-divider color="light">A</ion-item-divider>
-  <ion-item>Angola</ion-item>
-  <ion-item>Argentina</ion-item>
+<ion-item-group *ngFor="let item of toursData">
+  <ion-item-divider color="light">{{item}}</ion-item-divider>
+  <ion-item *ngFor="let tour of tours[item]">
+    {{tour.firstTeam + ' ' + tour.result + ' ' +tour.secondTeam}}
+  </ion-item>
 </ion-item-group>

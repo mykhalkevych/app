@@ -30,6 +30,10 @@ export class DatabaseService {
         return this.db.list(tableList, ref => ref.orderByChild('league').equalTo(league));
     }
 
+    getGames(tournament) {
+        return this.db.list('games', ref => ref.orderByChild('tournament').equalTo(tournament));
+    }
+
     addNews(news) {
         return this.news.push(news);
     }

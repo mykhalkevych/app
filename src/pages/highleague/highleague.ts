@@ -26,7 +26,7 @@ export class HighleaguePage {
 
   teamComposition = 'adults';
   constructor
-    (public navCtrl: NavController, 
+    (public navCtrl: NavController,
     private dataService: DatabaseService) {
   }
 
@@ -42,8 +42,8 @@ export class HighleaguePage {
     console.log(`Selected tab: `, tab);
   }
 
-  segmentChanged(e) { 
-    this.dataService.changeTeamComposition(e.value);  
+  segmentChanged(e) {
+    this.dataService.changeTeamComposition(e.value);
   }
 
 }
